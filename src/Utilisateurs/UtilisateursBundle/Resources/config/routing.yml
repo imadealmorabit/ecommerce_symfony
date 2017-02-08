@@ -1,0 +1,3 @@
+utilisateurs_homepage:
+    path:     /ch3as
+    defaults: { _controller: UtilisateursBundle:Default:index }

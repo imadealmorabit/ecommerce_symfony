@@ -1,0 +1,8 @@
+routingProduits:
+    resource: "@EcommerceBundle/Resources/config/routing/routingProduits.yml"
+    prefix:   /
+    
+routingPanier:
+    resource: "@EcommerceBundle/Resources/config/routing/routingPanier.yml"
+    prefix:   /panier
+    
