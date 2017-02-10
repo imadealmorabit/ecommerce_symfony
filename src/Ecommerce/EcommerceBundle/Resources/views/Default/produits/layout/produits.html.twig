@@ -2,8 +2,13 @@
 {% block body %}
 
     <div class="container">
-        <div class="row">                       
-                 {% include '::modulesUsed/navigation.html.twig' %}         
+        <div class="row">   
+            <div class="span3">
+                 {% include '::modulesUsed/navigation.html.twig' %} 
+                  {% include 'UtilisateursBundle:Default:modulesUsed/utilisateurs.html.twig' %} 
+            </div>
+            
+                        
             <div class="span9">
                  {% if produits|length !=0 %}
                 <ul class="thumbnails">
