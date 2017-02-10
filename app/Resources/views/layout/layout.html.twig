@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-
+        <title>{% block titre %}Ecommerce produits dentaires{% endblock %}</title>
+        <meta nam="keywords" content="{% block motsCles %}{% endblock %}"/>
+        <meta nam="description" content="{% block description %}{% endblock %}"/>
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
