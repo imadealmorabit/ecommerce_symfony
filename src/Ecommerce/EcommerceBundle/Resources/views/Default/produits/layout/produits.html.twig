@@ -13,7 +13,7 @@
                                 <img src="{{produit.image.path}}" alt="{{produit.image.alt}}" width="150" height="150">
                                 <div class="caption">
                                     <h4>{{produit.nom}}</h4>
-                                    <p>{{produit.prix}} €</p>
+                                    <p>{{produit.prix|tva(produit.tva.multiplicate)}} €</p>
                                     <a class="btn btn-primary" href="{{path('presentation', {'id': produit.id})}}">Plus d'infos</a>
                                     <a class="btn btn-success" href="{{path('panier')}}">Ajouter au panier</a>
                                 </div>
