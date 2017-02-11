@@ -17,13 +17,13 @@ class PanierController extends Controller
         
         if(array_key_exists($id, $panier)){
             
-            if($request->query->get('qte') != null) $panier['$id'] = $request->query->get('qte');          
+            if($request->query->get('qte') != null) $panier[$id] = $request->query->get('qte');          
         }
         else
         {
-            if($request->query->get('qte') != null) $panier['$id'] = $request->query->get('qte');
+            if($request->query->get('qte') != null) $panier[$id] = $request->query->get('qte');
             else
-                $panier['$id'] = 1;
+                $panier[$id] = 1;
         }
         $session->set('panier', $panier);
         
@@ -36,8 +36,15 @@ class PanierController extends Controller
     }
     
     
-    public function panierAction()
+    public function panierAction(Request $request)
     {
+        $session = $request->getSession();
+        
+        if(!$session->has('panier')) $session->set('panier', array());
+        
+        var_dump($session->get('panier'));
+        die();
+        
         return $this->render('EcommerceBundle:Default/panier/layout:panier.html.twig');
     }
      public function livraisonAction()
