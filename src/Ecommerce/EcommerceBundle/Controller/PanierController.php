@@ -42,8 +42,8 @@ class PanierController extends Controller
         
         if(!$session->has('panier')) $session->set('panier', array());
         
-        var_dump($session->get('panier'));
-        die();
+        $em = $this->getDoctrine()->getManager();
+        $produits = $em->getRepository('EcommerceBundle:Produits')->findArray(array_keys($session->get('panier')));
         
         return $this->render('EcommerceBundle:Default/panier/layout:panier.html.twig');
     }
