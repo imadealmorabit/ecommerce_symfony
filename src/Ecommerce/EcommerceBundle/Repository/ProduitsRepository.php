@@ -71,7 +71,7 @@ class ProduitsRepository extends \Doctrine\ORM\EntityRepository
               ;
 
       $qb
-     ->where('p.id IN :tab')
+     ->where('p.id IN (:tab)')
      ->setParameter('tab', $tab)
       ;
 

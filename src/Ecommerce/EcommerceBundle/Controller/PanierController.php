@@ -45,7 +45,8 @@ class PanierController extends Controller
         $em = $this->getDoctrine()->getManager();
         $produits = $em->getRepository('EcommerceBundle:Produits')->findArray(array_keys($session->get('panier')));
         
-        return $this->render('EcommerceBundle:Default/panier/layout:panier.html.twig');
+        return $this->render('EcommerceBundle:Default/panier/layout:panier.html.twig',
+                array('produits' => $produits, 'panier' => $session->get('panier')));
     }
      public function livraisonAction()
     {
