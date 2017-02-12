@@ -30,9 +30,17 @@ class PanierController extends Controller
         return $this->redirectToRoute('panier');
     }
     
-    public function supprimerAction($id)
+    public function supprimerAction($id, Request $request)
     {
-        return $this->render('EcommerceBundle:Default/panier/layout:panier.html.twig');
+        $session = $request->getSession();
+        $panier = $session->get('panier');
+        if(array_key_exists($id, $panier)){
+            unset($panier[$id]);
+            $session->set('panier', $panier);
+        }
+        
+        return $this->redirectToRoute('panier');
+        
     }
     
     

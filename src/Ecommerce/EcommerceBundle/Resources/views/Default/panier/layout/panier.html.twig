@@ -31,7 +31,7 @@
                                         <option value="{{ i }}" {% if i == panier[produit.id] %} selected="selected" {% endif %}>{{ i }}</option>
                                     {% endfor%}
                                 </select>&nbsp;
-                                <a href="#"><i class="icon-trash"></i></a>
+                                <a href="{{path('supprimer', {'id': produit.id})}}"><i class="icon-trash"></i></a>
                             </td>
                             <td>{{produit.prix}} €</td>
                             <td>{{produit.prix * panier[produit.id]}} €</td>
