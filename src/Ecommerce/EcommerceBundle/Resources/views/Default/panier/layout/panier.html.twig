@@ -2,7 +2,10 @@
 
 {% set totalHT = 0 %}
 {% set totalTTC = 0%}
-
+{% set refTva = {} %}
+{% for produit in produits%}
+    {% set refTva = refTva|merge({ ('%' ~ produit.tva.valeur) : 0}) %}
+{% endfor%}
 
 {% block body %}
 
@@ -44,6 +47,7 @@
                         </tr>  
                         {% set totalHT = totalHT + (produit.prix * panier[produit.id]) %}
                         {% set totalTTC = totalTTC + (produit.prix * panier[produit.id]) | tva(produit.tva.multiplicate) %}
+                        {% set refTva = refTva|merge({ ('%' ~ produit.tva.valeur) : refTva['%' ~ produit.tva.valeur] + (produit.prix * panier[produit.id]) | montantTva(produit.tva.multiplicate)}) %}
                     {% endfor%}
                     </tbody>
                 </table>
@@ -52,10 +56,14 @@
                 <dl class="dl-horizontal pull-right">
                     <dt>Total HT :</dt>
                     <dd>{{totalHT}} €</dd>
-
-                    <dt>TVA :</dt>
-                    <dd>200€</dd>
-
+                    
+                     {% for key,tva in refTva %}
+                         
+                    <dt>TVA {{key}} :</dt>
+                    <dd>{{tva}} €</dd>
+                    
+                    {% endfor %}
+                     
                     <dt>Total TTC:</dt>
                     <dd>{{totalTTC}} €</dd>
                 </dl>
