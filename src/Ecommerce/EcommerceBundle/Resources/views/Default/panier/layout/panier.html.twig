@@ -58,8 +58,9 @@
                     </tbody>
                 </table>
 
-
-                <dl class="dl-horizontal pull-right">
+                 {% if produits | length != 0 %}
+                     
+                    <dl class="dl-horizontal pull-right">
                     <dt>Total HT :</dt>
                     <dd>{{totalHT}} €</dd>
                     
@@ -75,6 +76,8 @@
                 </dl>
                 <div class="clearfix"></div>
                 <a href="{{path('livraison')}}" class="btn btn-success pull-right">Valider mon panier</a>
+                
+                {% endif %}
                 <a href="{{path('produits')}}" class="btn btn-primary">Continuer mes achats</a>
             </div>
 
