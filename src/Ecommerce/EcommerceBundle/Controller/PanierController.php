@@ -17,16 +17,19 @@ class PanierController extends Controller
         
         if(array_key_exists($id, $panier)){
             
-            if($request->query->get('qte') != null) $panier[$id] = $request->query->get('qte');          
+            if($request->query->get('qte') != null) $panier[$id] = $request->query->get('qte');  
+             $session->getFlashBag()->add('success', 'Quantite modifiee avec succes');
         }
         else
         {
             if($request->query->get('qte') != null) $panier[$id] = $request->query->get('qte');
             else
                 $panier[$id] = 1;
+            
+             $session->getFlashBag()->add('success', 'Article ajoute avec succes');
         }
         $session->set('panier', $panier);
-        
+       
         return $this->redirectToRoute('panier');
     }
     
@@ -37,6 +40,7 @@ class PanierController extends Controller
         if(array_key_exists($id, $panier)){
             unset($panier[$id]);
             $session->set('panier', $panier);
+            $session->getFlashBag()->add('success', 'Article supprime avec succes');
         }
         
         return $this->redirectToRoute('panier');
