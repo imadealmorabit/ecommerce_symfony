@@ -28,6 +28,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% if produits | length == 0 %}
+                            <tr>
+                                <td colspan="4"><center>Aucun article dans votre panier</center></td>
+                            <tr>
+                        {% endif %}
+                        
                         {% for produit in produits%}
                             <tr>
                         <form action="{{path('ajouter', {'id': produit.id})}}" method="GET">
