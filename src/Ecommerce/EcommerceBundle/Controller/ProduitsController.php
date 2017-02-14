@@ -10,24 +10,40 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ProduitsController extends Controller
 {
-    public function produitsAction()
+    public function produitsAction(Request $request)
     {
+        $session = $request->getSession();
         $em = $this->getDoctrine()->getManager();
+        if($session->has('panier'))
+            
+            $panier = $session->get('panier');
+        else
+            
+            $panier = false;
+            
         $produits = $em->getRepository('EcommerceBundle:Produits')->findWithMedia();
         return $this->render('EcommerceBundle:Default/produits/layout:produits.html.twig', 
-                array('produits' => $produits));
+                array('produits' => $produits, 'panier' => $panier));
     }
     
     
-    public function presentationAction($id)
+    public function presentationAction($id, Request $request)
     {
+        $session = $request->getSession();
          $em = $this->getDoctrine()->getManager();
         $produit = $em->getRepository('EcommerceBundle:Produits')->find($id);
+        
+         if($session->has('panier'))
+            
+            $panier = $session->get('panier');
+        else
+            
+            $panier = false;
         
         if(!$produit) throw $this->createNotFoundException("la page n'existe pas. "); 
         
         return $this->render('EcommerceBundle:Default/produits/layout:presentation.html.twig', 
-                array('produit' => $produit));
+                array('produit' => $produit, 'panier' => $panier));
     }
      public function categorieAction($categorie)
     {
