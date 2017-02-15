@@ -7,6 +7,19 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PanierController extends Controller
 {
+     public function menuAction(Request $request)
+    {
+        $session = $request->getSession();
+        
+        if(!$session->has('panier')) 
+            $articles = 0;
+        else 
+            $articles = count($session->get('panier'));
+
+        return $this->render('EcommerceBundle:Default/panier/modulesUsed:panier.html.twig',
+                array('articles' => $articles));
+    }
+    
     public function ajouterAction($id, Request $request)
     {
         $session = $request->getSession();
