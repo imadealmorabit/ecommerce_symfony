@@ -5,8 +5,8 @@
         <group>
             <file>file:/Applications/MAMP/htdocs/ecommerce/src/Ecommerce/EcommerceBundle/Resources/views/Default/panier/layout/panier.html.twig</file>
             <file>file:/Applications/MAMP/htdocs/ecommerce/src/Ecommerce/EcommerceBundle/Resources/views/Default/produits/layout/produits.html.twig</file>
-            <file>file:/Applications/MAMP/htdocs/ecommerce/src/Ecommerce/EcommerceBundle/Resources/config/routing/routingPanier.yml</file>
             <file>file:/Applications/MAMP/htdocs/ecommerce/src/Ecommerce/EcommerceBundle/Controller/PanierController.php</file>
+            <file>file:/Applications/MAMP/htdocs/ecommerce/src/Ecommerce/EcommerceBundle/Resources/views/Default/produits/layout/presentation.html.twig</file>
         </group>
     </open-files>
 </project-private>
