@@ -21,7 +21,7 @@ class MediaData extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($media2);
 
         $media3 = new Media();
-        $media3->setPath('http://image.made-in-china.com/43f34j00RSzQgFsBsUuY/Orthodontic-Protect-V-Self-Ligating-Metal-Bracket-Bracket-Ce-FDA-ISO13485-Certificated.jpg');
+        $media3->setPath('http://img.archiexpo.com/images_ae/photo-g/134209-9660579.jpg');
         $media3->setAlt('Brackets');
         $manager->persist($media3);   
             
